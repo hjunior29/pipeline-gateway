@@ -7,10 +7,7 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Connect on VM
-        uses: JimCronqvist/action-ssh@master
-        with:
-          hosts: ${{ secrets.HOST_CONNECTION_STRING }}
-          privateKey: ${{ secrets.PRIVATE_KEY }}
-          command: |
-            mkdir teste
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: |
+          curl ipinfo.io/json
